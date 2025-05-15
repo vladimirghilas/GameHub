@@ -1,0 +1,21 @@
+import random
+
+n = random.sample(10, 4)
+while True:
+    m = input("enter 4 not same digits")
+    if len(m) != 4 or not m.isdigit() or len(set(m)) != 4:
+        print("enter your digits again")
+    else:
+        break
+str1 = str(n)
+str2 = str(m)
+
+def bulls_and_cows():
+    bull = 0
+    cow = 0
+    for el in range(3):
+        if str1[el] == str2[el]:
+            bull += 1
+        else:
+            cow += 1
+    return (bull, cow)
