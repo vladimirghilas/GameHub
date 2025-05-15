@@ -20,27 +20,29 @@
 #   После победы программа должна вывести количество попыток, затраченных игроком.
 import random
 
-n = random.sample(10, 4)
-while True:
-    m = input("enter 4 not same digits")
-    if len(m) != 4 or not m.isdigit() or len(set(m)) != 4:
-        print("enter your digits again")
-    else:
-        break
-str1 = str(n)
-str2 = str(m)
-
 def bulls_and_cows():
-    bull = 0
-    cow = 0
-    for el in range(3):
-        if str1[el] == str2[el]:
-            bull += 1
-        else:
-            cow += 1
-    return (bull, cow)
-
-
-
-#if __name__ == "__main__":
-#    bulls_and_cows()
+    n = random.sample(range(10), 4)
+    while True:
+        while True:
+            m = input("enter 4 not same digits")
+            if len(m) != 4 or not m.isdigit() or len(set(m)) != 4:
+                print("two or many digits are the same enter your digits again")
+            else:
+                break
+        str1 = "".join(map(str, n))
+        str2 = str(m)
+        bull = 0
+        cow = 0
+        for el in range(4):
+            for el1 in range(4):
+                if str1[el] == str2[el1] and el == el1:
+                    bull += 1
+                elif str1[el] == str2[el1]:
+                    cow += 1
+        print("bulls =", bull, "cows =", cow)
+        print(n)
+        if (bull == 4):
+            print("вы угадали число")
+            break
+if __name__ == "__main__":
+    bulls_and_cows()

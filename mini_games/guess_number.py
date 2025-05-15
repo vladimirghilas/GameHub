@@ -12,9 +12,9 @@
 import random
 
 def guess_num_start():
-    i = 0
+    i = 1
     n = random.randint(0, 99)
-    while i < 6:
+    while i <= 6:
         m = int(input("Введите число до 100 "))
         if n == m:
             k = i
@@ -25,12 +25,13 @@ def guess_num_start():
         elif n < m:
             i += 1
             print("Загаданное число меньше.")
-    if n==m:
+    if n == m:
         print(F"Отлично. Вы угадали с {k} попыток")
     else:
         print(f"К сожалению, вы не угадали число. Загаданное число было:{n} ")
 
+
 guess_num_start()
-#print(f"К сожалению, вы не угадали число. Загаданное число было:{n} ")
-#if __name__ == "__main__":
+# print(f"К сожалению, вы не угадали число. Загаданное число было:{n} ")
+# if __name__ == "__main__":
 #    guess_num_start()
